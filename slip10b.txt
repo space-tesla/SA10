@@ -1,0 +1,56 @@
+Slip 10b 
+Q2 Write python programs on Pi for the following: 
+Print a name 'n' times, where name and n are read from standard input, using for 
+and while loops. 
+Handle "Divide by Zero" exception. 
+Print current time 10 times, with an interval of 10 seconds. 
+Read a file line by line and print the word count of each line. 
+import time 
+from datetime import datetime 
+# ---------------------------------------------------- 
+# 1. Print a name 'n' times using for loop and while loop 
+# ---------------------------------------------------- 
+name = input("Enter your name: ") 
+n = int(input("Enter how many times to print: ")) 
+print("\nUsing FOR loop:") 
+for i in range(n): 
+print(name) 
+print("\nUsing WHILE loop:") 
+count = 0 
+while count < n: 
+print(name) 
+count += 1 
+# ---------------------------------------------------- 
+# 2. Handle Divided by Zero Exception 
+# ---------------------------------------------------- 
+print("\nDivision Program with Exception Handling:") 
+a = float(input("Enter numerator: ")) 
+b = float(input("Enter denominator: ")) 
+try: 
+result = a / b 
+print("Result =", result) 
+except ZeroDivisionError: 
+print("Error: Cannot divide by zero!") 
+# ---------------------------------------------------- 
+# 3. Print current time for 10 times with 10-second interval 
+# ---------------------------------------------------- 
+print("\nPrinting current time 10 times with 10-second interval:") 
+for _ in range(10): 
+print("Current Time:", datetime.now().strftime("%H:%M:%S")) 
+time.sleep(10)   # 10-second delay 
+# ---------------------------------------------------- 
+# 4. Read a file line by line and print word count of each line 
+# ---------------------------------------------------- 
+print("\nWord Count of File Lines:") 
+ 
+file_name = input("Enter file name to read: ") 
+ 
+try: 
+    with open(file_name, "r") as file: 
+        line_number = 1 
+        for line in file: 
+            words = line.split() 
+            print(f"Line {line_number}: {len(words)} words") 
+            line_number += 1 
+except FileNotFoundError: 
+    print("Error: File not found!")
